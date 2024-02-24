@@ -29,7 +29,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
-    // Start full screen
     Wakelock.enable();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     super.initState();
@@ -44,29 +43,22 @@ class _MyHomePageState extends State<MyHomePage> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: DigitalClock(
-                hourMinuteDigitTextStyle: GoogleFonts.orbitron(
+            fit: BoxFit.scaleDown,
+            child: DigitalClock(
+              hourMinuteDigitTextStyle: GoogleFonts.orbitron(
+                fontSize: 120,
+                color: Colors.white,
+              ),
+              showSecondsDigit: false,
+              colon: Text(
+                ":",
+                style: GoogleFonts.orbitron(
                   fontSize: 120,
                   color: Colors.white,
                 ),
-                showSecondsDigit: false,
-                colon: Text(
-                  ":",
-                  style: GoogleFonts.orbitron(
-                    fontSize: 120,
-                    color: Colors.white,
-                  ),
-                ),
-              )
-              // Text(
-              //   "08:25:25 AM",
-              //   style: GoogleFonts.orbitron(
-              //     fontSize: 60,
-              //     color: Colors.white,
-              //   ),
-              // ),
               ),
+            ),
+          ),
         ),
       ),
     );
